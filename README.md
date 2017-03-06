@@ -17,7 +17,8 @@ violet-gulls
 
 ## Installation and Setup
 
-_Fill this out_
+To install dependencies, type the following command in your terminal:
+``` npm install ```
 
 ## Usage and Examples
 
