@@ -4,7 +4,14 @@
   "description": "Modeling a city transit system.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "repl": "",
+    "db:create": "NODE_ENV=development createdb lg-metrorail-db",
+    "db:migrate": "psql lg-metrorail-db < ./database/migrate_schema.sql",
+    "db:seed": "psql lg-metrorail-db < ./database/seed_schema.sql",
+    "db:drop": "NODE_ENV=development dropdb lg-metrorail-db",
+    "db:reset": "psql lg-metrorail-db < ./database/reset_schema.sql && npm run db:migrate && npm run db:seed",
+    "db:console": ""
   },
   "repository": {
     "type": "git",

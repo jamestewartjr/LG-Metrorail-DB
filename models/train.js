@@ -4,23 +4,22 @@ const connection =  {
   host: 'localhost',
   port: 5432,
   database: 'lg-metrorail-db',
-  user: 'postgres',
+  user: 'jhallman5',
 }
 
 const db = pg(connection)
 
-getTrainId = (station) => {
-  let currentStation = 'Waterfront'
-  if(typeof station !== 'string') {
+const getTrainId = (station) => {
+  if (typeof station !== 'string') {
     return 'Please insert current train station name.'
   }
-  else if(station !== currentStation){
-    return 'No train found at that station.'
-  }
-  else{
-    db.query('select id from trains where currentStation = ($1)', station)
-
-  }
+  return db.one('SELECT id FROM trains WHERE current_station = $1', [station])
+    .then( response => {
+      return response
+    })
+    .catch( error => {
+      return error
+    })
 }
 
 module.exports = {
