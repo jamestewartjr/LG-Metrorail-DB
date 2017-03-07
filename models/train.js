@@ -22,6 +22,29 @@ const getTrainId = (station) => {
     })
 }
 
+const getTrainCapacityById = (id) => {
+  if (typeof id !== 'number') {
+    return "Please provide a train ID as an integer."
+  }
+  return db.one('SELECT capacity FROM trains WHERE id = $1', [id])
+    .catch(error => {
+      return error
+    })
+}
+
+const getPassengerCountById = (id) => {
+  if (typeof id !== 'number') {
+    return "Please provide a train Id as an integer."
+  }
+  return db.one('SELECT current_riders FROM trains WHERE id = $1', [id])
+    .catch( error => {
+      return error
+    })
+}
+
 module.exports = {
-  getTrainId
+  getTrainId,
+  getTrainCapacityById,
+  getPassengerCountById
+
 }
