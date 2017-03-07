@@ -20,6 +20,13 @@ violet-gulls
 To install dependencies, type the following command in your terminal:
 ``` npm install ```
 
+If you have PostgreSQL, create database by using command:
+``` createdb lg-metrorail-db ```
+
+Insert a few database entries:
+``` psql < schema.sql ```
+
+
 ## Usage and Examples
 
 _...and this_

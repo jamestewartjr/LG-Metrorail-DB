@@ -14,7 +14,7 @@ describe('Train Model', () => {
       let station = 'Booya'
       expect(getTrainId(station)).to.be.equal('No train found at that station.')
     })
-    it('returns the ID of a train given current Station', () => {
+    it('returns the ID of a train at current station', () => {
       let station = 'Waterfront'
       expect(getTrainId(station)).to.be.equal(1)
     })
