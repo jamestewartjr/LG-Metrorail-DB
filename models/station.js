@@ -15,7 +15,16 @@ const getStationId = (stationName) => {
     return db.one('SELECT id FROM stations WHERE name = $1', [stationName])
   }
 }
-module.exports = {
-  getStationId
 
+const getStationLocation = (id) => {
+  if ( typeof id !== 'number') {
+    return 'Please provide a station id.'
+  }
+  else {
+    return db.one('SELECT name FROM stations WHERE id = $1', [id])
+  }
+}
+module.exports = {
+  getStationId,
+  getStationLocation
 }
