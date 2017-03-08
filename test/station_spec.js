@@ -3,7 +3,8 @@ const { expect } = require('chai')
 const {
   getStationId,
   getStationLocation,
-  getWaitingPassengerCount
+  getWaitingPassengerCount,
+  getPreviousTrainStation
 } = require('../models/station.js')
 
 
@@ -40,7 +41,7 @@ describe('Station Model', () => {
     })
   })
 
-  context.only('getWaitingPassengerCount()', () => {
+  context('getWaitingPassengerCount()', () => {
     it('returns an error if a string is not provided', () => {
       let stationName = 2
       expect(getWaitingPassengerCount(stationName))
@@ -52,6 +53,22 @@ describe('Station Model', () => {
       return getWaitingPassengerCount(stationName)
         .then(record => {
           expect(record.passengers_waiting).to.equal(5)
+      })
+    })
+  })
+
+  context.only('getPreviousTrainStation()', () => {
+    it('returns an error if a string is not provided', () => {
+      let stationName = [2]
+      expect(getPreviousTrainStation(stationName))
+        .to.be.equal('Please provide a station name.')
+    })
+
+    it('returns the name of a previous station when given a station name', () => {
+      let stationName = 'Annex'
+      return getPreviousTrainStation(stationName)
+        .then(record => {
+          expect(record.previous_station).to.equal('Forest Gardens')
       })
     })
   })
