@@ -3,11 +3,19 @@ const connection =  {
   host: 'localhost',
   port: 5432,
   database: 'lg-metrorail-db',
-  user: 'jhallman5',
+  user: 'JameStewartJr',
 }
 const db = pg(connection)
 
+const getStationId = (stationName) => {
+  if ( typeof stationName !== 'string') {
+    return 'Please provide station name.'
+  }
+  else {
+    return db.one('SELECT id FROM stations WHERE name = $1', [stationName])
+  }
+}
 module.exports = {
-
+  getStationId
 
 }
