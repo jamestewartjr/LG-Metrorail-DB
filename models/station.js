@@ -43,9 +43,19 @@ const getPreviousTrainStation = (name) => {
   }
 }
 
+const getNextTrainStation = (name) => {
+  if ( typeof name !== 'string') {
+    return 'Please provide a station name.'
+  }
+  else {
+    return db.one('SELECT next_station FROM stations WHERE name = $1', [name])
+  }
+}
+
 module.exports = {
   getStationId,
   getStationLocation,
   getWaitingPassengerCount,
-  getPreviousTrainStation
+  getPreviousTrainStation,
+  getNextTrainStation
 }
