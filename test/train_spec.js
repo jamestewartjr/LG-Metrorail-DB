@@ -28,7 +28,7 @@ describe('Train Model', () => {
   context('getTrainCapacityById()', ()=> {
     it('returns an error if not given an integer', () => {
       let id = 'string'
-      return expect(getTrainCapacityById(id)).to.equal("Please provide a train ID as an integer.")
+      expect(getTrainCapacityById(id)).to.equal("Please provide a train ID as an integer.")
     })
     it('returns train capacity when given train id', () => {
       let id = 2

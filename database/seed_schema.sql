@@ -24,3 +24,9 @@ VALUES ('Annex', 5, 'Forest Gardens', '10th Ave');
 
 INSERT INTO stations (name, passengers_waiting, previous_station, next_station )
 VALUES ('10th Ave', 20, 'Annex', 'Waterfront');
+
+INSERT INTO passengers (name, ticket, current_station, current_train_id)
+  VALUES ('Sam', 'Downtown', 'Waterfront', 1);
+
+INSERT INTO passengers( name, ticket, current_station, current_train_id)
+  VALUES ('Lisa', 'Waterfront', 'Downtown', 2);
