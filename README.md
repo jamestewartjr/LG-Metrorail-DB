@@ -35,6 +35,9 @@ To drop your database use command:
 To reset your database by dropping, creating and seeding your database. Use:
 ``` npm run db:reset ```
 
+See styling issues with the linter command:
+``` npm run lint ```
+
 ## Usage and Examples
 
 _...and this_

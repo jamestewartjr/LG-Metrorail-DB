@@ -10,7 +10,7 @@ const db = pg(connection)
 
 const getPassengerIdByName = (name) => {
   if(typeof name !== 'string') {
-    return "Please enter a passenger's name."
+    return 'Please enter a passenger name.'
   }
   return db.one('SELECT id FROM passengers WHERE name = $1', [name])
     .then( response => {
@@ -23,7 +23,7 @@ const getPassengerIdByName = (name) => {
 
 const getPassengerNameById = (id) => {
   if(typeof id !== 'number') {
-    return "Please enter the passenger's id number."
+    return 'Please enter the passengers id number.'
   }
   return db.one('SELECT name FROM passengers WHERE id = $1', [id])
     .then( response => {
@@ -37,29 +37,29 @@ const getPassengerNameById = (id) => {
 const getDesitnationById = (id) => {
   if(typeof id !== 'number'){
     return 'Please enter a passenger id number.'
-   }
-   return db.one("SELECT ticket FROM passengers WHERE id = $1", [id])
+  }
+  return db.one('SELECT ticket FROM passengers WHERE id = $1', [id])
 }
 
 const getDesitnationByName  = (name) => {
   if(typeof name !== 'string'){
     return 'Please enter the name of a passenger.'
-   }
-   return db.one("SELECT ticket FROM passengers WHERE name = $1", [name])
+  }
+  return db.one('SELECT ticket FROM passengers WHERE name = $1', [name])
 }
 
 const getCurrentStationByPassengerName = (name) => {
   if(typeof name !== 'string') {
     return 'Please enter the name of a passenger to find thier location.'
   }
-  return db.one("SELECT current_station FROM passengers WHERE name = $1", [name])
+  return db.one('SELECT current_station FROM passengers WHERE name = $1', [name])
 }
 
 const getCurrentStationByPassengerId = (id) => {
   if(typeof id !== 'number') {
     return'Please enter the id of a passenger to find thier location.'
   }
-  return db.one("SELECT current_station FROM passengers WHERE id = $1",[id])
+  return db.one('SELECT current_station FROM passengers WHERE id = $1',[id])
 }
 
 const getAllPassenersByStationName = (name) => {
@@ -91,7 +91,7 @@ const getAllPassenersByTrainId = (id) => {
 }
 
 const createNewPassenger = (name, destination, currentLocation, currentTrain) => {
-    db.one('INSERT INTO passengers( name, ticket, current_station, current_train_id) VALUES ($1, $2, $3, $4)', [name, destination, currentLocation, currentTrain])
+  db.one('INSERT INTO passengers( name, ticket, current_station, current_train_id) VALUES ($1, $2, $3, $4)', [name, destination, currentLocation, currentTrain])
   return 'Thank you for joining the metrorail system!'
 }
 module.exports = {

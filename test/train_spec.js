@@ -1,4 +1,3 @@
-const mocha = require('mocha')
 const { expect } = require('chai')
 const {
   getTrainId,
@@ -28,7 +27,7 @@ describe('Train Model', () => {
   context('getTrainCapacityById()', ()=> {
     it('returns an error if not given an integer', () => {
       let id = 'string'
-      expect(getTrainCapacityById(id)).to.equal("Please provide a train ID as an integer.")
+      expect(getTrainCapacityById(id)).to.equal('Please provide a train ID as an integer.')
     })
     it('returns train capacity when given train id', () => {
       let id = 2
@@ -40,8 +39,8 @@ describe('Train Model', () => {
 
   context('getPassengerCountById', () => {
     it('returns an error if not given an integer', () => {
-      let id = "twice"
-      expect( getPassengerCountById(id)).to.be.equal("Please provide a train Id as an integer.")
+      let id = 'twice'
+      expect( getPassengerCountById(id)).to.be.equal('Please provide a train Id as an integer.')
     })
     it('returns passenger count when given train id', () => {
       let id = 2
@@ -53,8 +52,8 @@ describe('Train Model', () => {
 
   context('getTrainCurrentStationById', () => {
     it('returns an error if not given an integer', () => {
-      let id = "twice"
-      expect( getTrainCurrentStationById(id)).to.be.equal("Please provide a train Id as an integer.")
+      let id = 'twice'
+      expect( getTrainCurrentStationById(id)).to.be.equal('Please provide a train Id as an integer.')
     })
     it('returns current station when given train id', () => {
       let id = 2
@@ -66,8 +65,8 @@ describe('Train Model', () => {
 
   // context('getTrainNextStationById', () => {
   //   it('returns an error if not given an integer', () => {
-  //     let id = "twice"
-  //     expect( getTrainNextStationById(id)).to.be.equal("Please provide a train Id as an integer.")
+  //     let id = 'twice'
+  //     expect( getTrainNextStationById(id)).to.be.equal('Please provide a train Id as an integer.')
   //   })
   //   it('returns current station when given train id', () => {
   //     let id = 2
@@ -94,12 +93,12 @@ describe('Train Model', () => {
 
   context('destroyTrain', () => {
     it('returns an error if not given an integer', () => {
-      let id = "twice"
-      expect( destroyTrain(id)).to.be.equal("Please provide a train Id as an integer.")
+      let id = 'twice'
+      expect( destroyTrain(id)).to.be.equal('Please provide a train Id as an integer.')
     })
     it('returns message when train retired', () => {
       let id = 2
-        expect(destroyTrain(id)).to.equal('Out with the old.')
+      expect(destroyTrain(id)).to.equal('Out with the old.')
     })
   })
 

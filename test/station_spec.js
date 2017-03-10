@@ -1,4 +1,3 @@
-const mocha = require('mocha')
 const { expect } = require('chai')
 const {
   getStationIdByName,
@@ -26,7 +25,7 @@ describe('Station Model', () => {
       return getStationIdByName(stationName)
         .then(record => {
           expect(record.id).to.equal(4)
-      })
+        })
     })
   })
 
@@ -57,7 +56,7 @@ describe('Station Model', () => {
       return getWaitingPassengerCount(stationName)
         .then(record => {
           expect(record.passengers_waiting).to.equal(5)
-      })
+        })
     })
   })
 
@@ -73,7 +72,7 @@ describe('Station Model', () => {
       return getPreviousTrainStation(stationName)
         .then(record => {
           expect(record.previous_station).to.equal('Forest Gardens')
-      })
+        })
     })
   })
 
@@ -89,7 +88,7 @@ describe('Station Model', () => {
       return getNextTrainStation(stationName)
         .then(record => {
           expect(record.next_station).to.equal('10th Ave')
-      })
+        })
     })
   })
 
@@ -116,9 +115,9 @@ describe('Station Model', () => {
 
     it('returns a message when a station has been deleted', () => {
       let stationName = 'Annex'
-        expect(deleteStationByName(stationName)).to.equal('Thank you for deleting the transit station.')
-      })
+      expect(deleteStationByName(stationName))
+        .to.equal('Thank you for deleting the transit station.')
     })
-
+  })
 
 })

@@ -23,7 +23,7 @@ const getTrainId = (station) => {
 
 const getTrainCapacityById = (id) => {
   if (typeof id !== 'number') {
-    return "Please provide a train ID as an integer."
+    return 'Please provide a train ID as an integer.'
   }
   return db.one('SELECT capacity FROM trains WHERE id = $1', [id])
     .catch(error => {
@@ -33,7 +33,7 @@ const getTrainCapacityById = (id) => {
 
 const getPassengerCountById = (id) => {
   if (typeof id !== 'number') {
-    return "Please provide a train Id as an integer."
+    return 'Please provide a train Id as an integer.'
   }
   return db.one('SELECT current_riders FROM trains WHERE id = $1', [id])
     .catch( error => {
@@ -43,7 +43,7 @@ const getPassengerCountById = (id) => {
 
 const getTrainCurrentStationById = (id) => {
   if (typeof id !== 'number') {
-    return "Please provide a train Id as an integer."
+    return 'Please provide a train Id as an integer.'
   }
   return db.one('SELECT current_station FROM trains WHERE id = $1', [id])
     .catch( error => {
@@ -53,7 +53,7 @@ const getTrainCurrentStationById = (id) => {
 
 // const getTrainNextStationById = (id) => {
 //   if (typeof id !== 'number') {
-//     return "Please provide a train Id as an integer."
+//     return 'Please provide a train Id as an integer.'
 //   }
 //   return db.one('SELECT previous_station FROM trains WHERE id = $1', [id])
 //     .catch( error => {
@@ -71,10 +71,10 @@ const createTrain = (capacity, current_riders, current_station) => {
 
 const destroyTrain = (id) => {
   if (typeof id !== 'number') {
-    return "Please provide a train Id as an integer."
+    return 'Please provide a train Id as an integer.'
   }
   db.one('DELETE FROM trains WHERE id = $1', [id])
-    return 'Out with the old.'
+  return 'Out with the old.'
 }
 
 module.exports = {

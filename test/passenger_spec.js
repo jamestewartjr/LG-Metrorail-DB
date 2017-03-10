@@ -1,4 +1,3 @@
-const mocha = require('mocha')
 const { expect } = require('chai')
 const {
   getPassengerIdByName,
@@ -14,24 +13,24 @@ const {
   createNewPassenger
 } = require('../models/passenger.js')
 
-describe("Passenger Model" , () => {
+describe('Passenger Model' , () => {
 
 
   context('getPassengerIdByName()', () => {
     it('returns the passenger id when given a name.', () => {
-    let name = 'Lisa'
+      let name = 'Lisa'
       return getPassengerIdByName(name).then(result => {
         expect(result.id).to.equal(2)
       })
     })
     it('returns an error message if not given a string.', () => {
-      expect(getPassengerIdByName(2)).to.equal("Please enter a passenger's name.")
+      expect(getPassengerIdByName(2)).to.equal('Please enter a passenger name.')
     })
   })
 
   context('getPassengerNameById()', () => {
     it('returns and error message if given a string', () => {
-      expect(getPassengerNameById("Lisa")).to.equal("Please enter the passenger's id number.")
+      expect(getPassengerNameById('Lisa')).to.equal('Please enter the passengers id number.')
     })
     it('return the name of a passenger when given an id.', () => {
       return getPassengerNameById(2).then( results => {
@@ -57,15 +56,15 @@ describe("Passenger Model" , () => {
   })
 
   context('getDesitnationByName()', () => {
-      it('returns an error message if not given a string.', () => {
-        expect(getDesitnationByName(2)).to.be.equal('Please enter the name of a passenger.')
-      })
-      it('returns the destination of a passenger when given thier name.', () => {
-        return getDesitnationByName('Lisa').then( response => {
-          expect(response.ticket).to.be.equal('Waterfront')
-        })
+    it('returns an error message if not given a string.', () => {
+      expect(getDesitnationByName(2)).to.be.equal('Please enter the name of a passenger.')
+    })
+    it('returns the destination of a passenger when given thier name.', () => {
+      return getDesitnationByName('Lisa').then( response => {
+        expect(response.ticket).to.be.equal('Waterfront')
       })
     })
+  })
 
   context('getCurrentStationByPassengerName()', () => {
     it('returns an error when given a number.', () => {
@@ -74,7 +73,7 @@ describe("Passenger Model" , () => {
     })
     it('returns the current station of a passenger given thier name.', () => {
       return getCurrentStationByPassengerName('Lisa').then(response => {
-        expect(response.current_station).to.be.equal("Downtown")
+        expect(response.current_station).to.be.equal('Downtown')
       })
     })
   })
@@ -86,7 +85,7 @@ describe("Passenger Model" , () => {
     })
     it('returns the current station of a passenger given thier id.', () => {
       return getCurrentStationByPassengerId(2).then(response => {
-        expect(response.current_station).to.be.equal("Downtown")
+        expect(response.current_station).to.be.equal('Downtown')
       })
     })
   })
@@ -140,7 +139,8 @@ describe("Passenger Model" , () => {
 
   context('createNewPassenger()', () => {
     it('should create a new passenger in our database.' , () => {
-    expect(createNewPassenger('Stephanie', '10th Ave', 'Forest Gardens', 1)).to.be.equal('Thank you for joining the metrorail system!')
+      expect(createNewPassenger('Stephanie', '10th Ave', 'Forest Gardens', 1))
+        .to.be.equal('Thank you for joining the metrorail system!')
     })
   })
 })
