@@ -139,24 +139,24 @@ Create models with interfaces to satisfy the following user stories, assuming th
 - [x] As a user of the `Station` model, I receive appropriate and descriptive errors.
 - [ ] As a user of the `Station` model, I can run unit tests that exercise the specs for every public property, instance method, and class method.
 - [ ] As a user of the `Passenger` model, I can...
-  - [ ] get the ID of a particular passenger.
-  - [ ] get the name of a particular passenger.
-  - [ ] get a particular passenger's ticket.
+  - [x] get the ID of a particular passenger.
+  - [x] get the name of a particular passenger.
+  - [x] get a particular passenger's ticket.
   - [ ] set the current station of a particular passenger.
   - [ ] buy a ticket for a particular passenger from their current station to another specified station.
   - [ ] use a ticket for a particular passenger.
-  - [ ] determine the current train for a particular passenger.
-  - [ ] determine the current station for a particular passenger.
-  - [ ] find a passenger by their ID.
-  - [ ] find a passenger by their name.
-  - [ ] find all passengers at a station.
-  - [ ] find all passengers on a train.
-  - [ ] create a new passenger.
-  - [ ] save new passengers to the database.
+  - [x] determine the current train for a particular passenger.
+  - [x] determine the current station for a particular passenger.
+  - [x] find a passenger by their ID.
+  - [x] find a passenger by their name.
+  - [x] find all passengers at a station.
+  - [x] find all passengers on a train.
+  - [x] create a new passenger.
+  - [x] save new passengers to the database.
   - [ ] update existing passengers in the database.
   - [ ] delete a passenger from the database.
-- [ ] As a user of the `Passenger` model, I receive appropriate and descriptive errors.
-- [ ] As a user of the `Station` model, I can run unit tests that exercise the specs for every public property, instance method, and class method.
+- [x] As a user of the `Passenger` model, I receive appropriate and descriptive errors.
+- [] As a user of the `Station` model, I can run unit tests that exercise the specs for every public property, instance method, and class method.
 
 ### Required
 
