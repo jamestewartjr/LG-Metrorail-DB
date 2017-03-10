@@ -14,7 +14,7 @@ const {
   createNewPassenger
 } = require('../models/passenger.js')
 
-describe.only("Passenger Model" , () => {
+describe("Passenger Model" , () => {
 
 
   context('getPassengerIdByName()', () => {
