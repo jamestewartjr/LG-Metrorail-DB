@@ -1,42 +1,45 @@
 const mocha = require('mocha')
 const { expect } = require('chai')
 const {
-  getStationId,
-  getStationLocation,
+  getStationIdByName,
+  getStationLocationById,
   getWaitingPassengerCount,
   getPreviousTrainStation,
-  getNextTrainStation
+  getNextTrainStation,
+  createStation,
+  updateStationByName,
+  deleteStationByName
 } = require('../models/station.js')
 
 
 describe('Station Model', () => {
 
-  context('getStationId()', ()=> {
+  context('getStationIdByName()', ()=> {
     it('returns an error if a string is not given' , () => {
       let stationName = 2
-      expect(getStationId(stationName))
+      expect(getStationIdByName(stationName))
         .to.be.equal('Please provide station name.')
     })
 
     it('returns the ID of a station when give the name', () => {
       let stationName = 'Annex'
-      return getStationId(stationName)
+      return getStationIdByName(stationName)
         .then(record => {
           expect(record.id).to.equal(4)
       })
     })
   })
 
-  context('getStationLocation()', () => {
+  context('getStationLocationById()', () => {
     it('returns an error if an integer is not provided', () => {
       let id = 'notId'
-      expect(getStationLocation(id))
+      expect(getStationLocationById(id))
         .to.be.equal('Please provide a station id.')
     })
 
     it('returns a station id when given a station name', () => {
       let id = 4
-      return getStationLocation(id).then(record => {
+      return getStationLocationById(id).then(record => {
         expect(record.name).to.equal('Annex')
       })
     })
@@ -74,7 +77,7 @@ describe('Station Model', () => {
     })
   })
 
-  context.only('getNextTrainStation()', () => {
+  context('getNextTrainStation()', () => {
     it('returns an error if a string is not provided', () => {
       let stationName = [2]
       expect(getNextTrainStation(stationName))
@@ -89,4 +92,33 @@ describe('Station Model', () => {
       })
     })
   })
+
+  context('createStation()', () => {
+    it('returns a message when a new station is created', () => {
+      expect( createStation('Colosseum', 200, 'Waterfront', 'Central Station') )
+        .to.equal('Thank you for expanding the transit system.')
+    })
+  })
+
+  context('updateStationByName()', () => {
+    it('returns a message station when a station is updated', () => {
+      expect(updateStationByName('Colosseum', 300, 'Waterfront', 'Central Station'))
+      .to.equal('Thank you for updating the transit system.')
+    })
+  })
+
+  context('deleteStationByName()', () => {
+    it('returns an error if a string is not provided', () => {
+      let stationName = 2
+      expect(deleteStationByName(stationName))
+        .to.be.equal('Please provide a station name.')
+    })
+
+    it('returns a message when a station has been deleted', () => {
+      let stationName = 'Annex'
+        expect(deleteStationByName(stationName)).to.equal('Thank you for deleting the transit station.')
+      })
+    })
+
+
 })
