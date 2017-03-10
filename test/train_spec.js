@@ -10,7 +10,7 @@ const {
  } = require('../models/train.js')
 
 
-describe.only('Train Model', () => {
+describe('Train Model', () => {
 
   context('getTrainId()', ()=> {
     it('returns an error if a string is not given' , () => {
