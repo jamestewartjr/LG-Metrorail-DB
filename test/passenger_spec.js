@@ -40,15 +40,20 @@ describe("Passenger Model" , () => {
     })
   })
 
-context('getDesitnationById()', () => {
+  context('getDesitnationById()', () => {
     it('returns an error message if not given a number.', () => {
-      expect(getDesitnationById('Lisa')).to.be.equal('Please enter a passenger id number.')
+      expect(getDesitnationById('Lisa'))
+        .to.be.equal('Please enter a passenger id number.')
     })
-    it('returns the destination of a passenger when given thier id.', () => {
-      return getDesitnationById(2).then( response => {
-        expect(response.ticket).to.be.equal('Waterfront')
-      })
+
+    it('returns the passenger destination when given their id.', () => {
+      return getDesitnationById(2)
+        .then( response => {
+          expect(response.ticket)
+            .to.be.equal('Waterfront')
+        })
     })
+
   })
 
   context('getDesitnationByName()', () => {
