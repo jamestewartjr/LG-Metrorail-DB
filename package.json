@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "repl": "",
+    "repl": "node repl.js",
     "db:create": "NODE_ENV=development createdb lg-metrorail-db",
     "db:migrate": "psql lg-metrorail-db < ./database/migrate_schema.sql",
     "db:seed": "psql lg-metrorail-db < ./database/seed_schema.sql",
