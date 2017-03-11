@@ -14,6 +14,10 @@ const {
 
 describe('Station Model', () => {
 
+  // beforeEach( () => {
+  //   psql lg-metrorail-db < ./database/reset_schema.sql && npm run db:migrate && npm run db:seed
+  // })
+
   context('getStationIdByName()', ()=> {
     it('returns an error if a string is not given' , () => {
       let stationName = 2
@@ -21,7 +25,7 @@ describe('Station Model', () => {
         .to.be.equal('Please provide station name.')
     })
 
-    it('returns the ID of a station when give the name', () => {
+    it('returns the ID of a station when station name given', () => {
       let stationName = 'Annex'
       return getStationIdByName(stationName)
         .then(record => {

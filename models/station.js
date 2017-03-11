@@ -52,13 +52,13 @@ const getNextTrainStation = (name) => {
 }
 
 const createStation = (name, passengers_waiting, previous_station, next_station) => {
-  db.one('INSERT INTO stations( name, passengers_waiting, previous_station, next_station ) VALUES( $1, $2, $3, $4 ) RETURNING *',
+  db.none('INSERT INTO stations( name, passengers_waiting, previous_station, next_station ) VALUES( $1, $2, $3, $4 )',
   [name, passengers_waiting, previous_station, next_station] )
   return 'Thank you for expanding the transit system.'
 }
 
 const updateStationByName = (name, passengers_waiting, previous_station, next_station) => {
-  db.one('UPDATE stations SET name = $1 , passengers_waiting = $2,  previous_station = $3, next_station = $4 WHERE name = $1 )',
+  db.one('UPDATE stations SET name = $1 , passengers_waiting = $2,  previous_station = $3, next_station = $4 WHERE name = $1 RETURNING *',
   [name, passengers_waiting, previous_station, next_station] )
   return 'Thank you for updating the transit system.'
 }

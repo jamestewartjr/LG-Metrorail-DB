@@ -34,14 +34,14 @@ const getPassengerNameById = (id) => {
     })
 }
 
-const getDesitnationById = (id) => {
+const getDestinationById = (id) => {
   if(typeof id !== 'number'){
     return 'Please enter a passenger id number.'
    }
    return db.one("SELECT ticket FROM passengers WHERE id = $1", [id])
 }
 
-const getDesitnationByName  = (name) => {
+const getDestinationByName  = (name) => {
   if(typeof name !== 'string'){
     return 'Please enter the name of a passenger.'
    }
@@ -91,14 +91,14 @@ const getAllPassenersByTrainId = (id) => {
 }
 
 const createNewPassenger = (name, destination, currentLocation, currentTrain) => {
-    db.one('INSERT INTO passengers( name, ticket, current_station, current_train_id) VALUES ($1, $2, $3, $4)', [name, destination, currentLocation, currentTrain])
+    db.none('INSERT INTO passengers( name, ticket, current_station, current_train_id) VALUES ($1, $2, $3, $4)', [name, destination, currentLocation, currentTrain])
   return 'Thank you for joining the metrorail system!'
 }
 module.exports = {
   getPassengerIdByName,
   getPassengerNameById,
-  getDesitnationById,
-  getDesitnationByName,
+  getDestinationById,
+  getDestinationByName,
   getCurrentStationByPassengerName,
   getCurrentStationByPassengerId,
   getAllPassenersByStationName,

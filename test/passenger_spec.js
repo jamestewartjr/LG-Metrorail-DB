@@ -3,8 +3,8 @@ const { expect } = require('chai')
 const {
   getPassengerIdByName,
   getPassengerNameById,
-  getDesitnationById,
-  getDesitnationByName,
+  getDestinationById,
+  getDestinationByName,
   getCurrentStationByPassengerName,
   getCurrentStationByPassengerId,
   getAllPassenersByStationName,
@@ -40,14 +40,14 @@ describe("Passenger Model" , () => {
     })
   })
 
-  context('getDesitnationById()', () => {
+  context('getDestinationById()', () => {
     it('returns an error message if not given a number.', () => {
-      expect(getDesitnationById('Lisa'))
+      expect(getDestinationById('Lisa'))
         .to.be.equal('Please enter a passenger id number.')
     })
 
     it('returns the passenger destination when given their id.', () => {
-      return getDesitnationById(2)
+      return getDestinationById(2)
         .then( response => {
           expect(response.ticket)
             .to.be.equal('Waterfront')
@@ -56,12 +56,12 @@ describe("Passenger Model" , () => {
 
   })
 
-  context('getDesitnationByName()', () => {
+  context('getDestinationByName()', () => {
       it('returns an error message if not given a string.', () => {
-        expect(getDesitnationByName(2)).to.be.equal('Please enter the name of a passenger.')
+        expect(getDestinationByName(2)).to.be.equal('Please enter the name of a passenger.')
       })
       it('returns the destination of a passenger when given thier name.', () => {
-        return getDesitnationByName('Lisa').then( response => {
+        return getDestinationByName('Lisa').then( response => {
           expect(response.ticket).to.be.equal('Waterfront')
         })
       })
