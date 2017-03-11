@@ -1,8 +1,12 @@
 
 const resetDB = () => {
-  dropTables()
-  createTables()
-  seedTables()
+
+  beforeEach( () => {
+    dropTables()
+    createTables()
+    seedTables()
+  })
+
 }
 
 modules.exports = { resetDB }

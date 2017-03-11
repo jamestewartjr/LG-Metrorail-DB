@@ -1,4 +1,4 @@
-const { db } = require('../database/connection.js')
+const { db } = require('../database/config/connection.js')
 
 const getPassengerIdByName = (name) => {
   if(typeof name !== 'string') {

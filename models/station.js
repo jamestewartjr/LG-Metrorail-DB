@@ -1,4 +1,4 @@
-const { db } = require('../database/connection.js')
+const { db } = require('../database/config/connection.js')
 
 const getStationIdByName = (stationName) => {
   if ( typeof stationName !== 'string') {
