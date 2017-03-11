@@ -11,7 +11,7 @@
     "db:seed": "psql lg-metrorail-db < ./database/seed_schema.sql",
     "db:drop": "NODE_ENV=development dropdb lg-metrorail-db",
     "db:reset": "psql lg-metrorail-db < ./database/reset_schema.sql && npm run db:migrate && npm run db:seed",
-    "db:console": ""
+    "db:console": "psql"
   },
   "repository": {
     "type": "git",

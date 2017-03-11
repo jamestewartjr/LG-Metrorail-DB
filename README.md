@@ -32,12 +32,14 @@ Seed your database with test data:
 To drop your database use command:
 ``` npm run db:drop ```
 
-To reset your database by dropping, creating and seeding your database. Use:
+To reset your database by dropping, creating and seeding your database, use:
 ``` npm run db:reset ```
 
-To load the REPL, Use:
+To load the REPL use:
 ``` npm run repl ```
 
+To run quieres from the console, use:
+``` npm run console ```
 ## Usage and Examples
 
 _...and this_
