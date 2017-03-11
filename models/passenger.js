@@ -1,12 +1,4 @@
-const pg = require('pg-promise')()
-
-const connection =  {
-  host: 'localhost',
-  port: 5432,
-  database: 'lg-metrorail-db',
-}
-
-const db = pg(connection)
+const { db } = require('../database/connection.js')
 
 const getPassengerIdByName = (name) => {
   if(typeof name !== 'string') {
