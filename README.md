@@ -35,11 +35,15 @@ To drop your database use command:
 To reset your database by dropping, creating and seeding your database, use:
 ``` npm run db:reset ```
 
+See styling suggestions with the linter command:
+``` npm run lint ```
+
 To load the REPL use:
 ``` npm run repl ```
 
 To run quieres from the console, use:
 ``` npm run console ```
+
 ## Usage and Examples
 
 ## Example
@@ -51,4 +55,4 @@ To run quieres from the console, use:
 
     createNewPassenger(Julia, 'Downtown', 'Waterfront', 2)
 
-    //new passenger Julia created! 
+    //new passenger Julia created!
