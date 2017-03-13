@@ -1,0 +1,35 @@
+{
+  "name": "lg-metrorail-crud-database",
+  "version": "1.0.0",
+  "description": "Modeling a city transit system.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ./",
+    "test": "mocha",
+    "repl": "node repl.js",
+    "db:create": "NODE_ENV=development createdb lg-metrorail-db",
+    "db:migrate": "psql lg-metrorail-db < ./database/migrate_schema.sql",
+    "db:seed": "psql lg-metrorail-db < ./database/seed_schema.sql",
+    "db:drop": "NODE_ENV=development dropdb lg-metrorail-db",
+    "db:reset": "psql lg-metrorail-db < ./database/reset_schema.sql && npm run db:migrate && npm run db:seed",
+    "db:console": "psql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamestewartjr/LG-metrorail-crud-database.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamestewartjr/LG-metrorail-crud-database/issues"
+  },
+  "homepage": "https://github.com/jamestewartjr/LG-metrorail-crud-database#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.17.1",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "pg-promise": "^5.6.3"
+  }
+}
