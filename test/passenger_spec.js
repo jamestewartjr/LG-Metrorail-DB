@@ -9,7 +9,7 @@ const {
   getAllPassenersByStationName,
   getTrainIdByPassengerId,
   getTrainIdByPassengerName,
-  getAllPassenersByTrainId,
+  getAllPassengersByTrainId,
   createNewPassenger
 } = require('../models/passenger.js')
 
@@ -31,6 +31,7 @@ describe('Passenger Model' , () => {
   context('getPassengerNameById()', () => {
     it('returns and error message if given a string', () => {
       expect(getPassengerNameById('Lisa')).to.equal('Please enter the passengers id number.')
+
     })
     it('return the name of a passenger when given an id.', () => {
       return getPassengerNameById(2).then( results => {
@@ -125,13 +126,13 @@ describe('Passenger Model' , () => {
     })
   })
 
-  context('getAllPassenersByTrainId()', () => {
+  context('getAllPassengersByTrainId()', () => {
     it('returns an error if given a string.', () => {
-      expect(getAllPassenersByTrainId('Lisa')).to.be
+      expect(getAllPassengersByTrainId('Lisa')).to.be
         .equal('Please enter a train id to find the passengers aboard.')
     })
     it('returns the passengers aboard when given a train id.', () => {
-      return getAllPassenersByTrainId(2).then( response => {
+      return getAllPassengersByTrainId(2).then( response => {
         expect(response.name).to.be.equal('Lisa')
       })
     })

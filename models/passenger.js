@@ -1,12 +1,4 @@
-const pg = require('pg-promise')()
-
-const connection =  {
-  host: 'localhost',
-  port: 5432,
-  database: 'lg-metrorail-db',
-}
-
-const db = pg(connection)
+const { db } = require('../database/connection.js')
 
 const getPassengerIdByName = (name) => {
   if(typeof name !== 'string') {
@@ -83,7 +75,7 @@ const getTrainIdByPassengerName = (name) => {
   return db.one('SELECT current_train_id FROM passengers WHERE name = $1', [name])
 }
 
-const getAllPassenersByTrainId = (id) => {
+const getAllPassengersByTrainId = (id) => {
   if(typeof id !== 'number') {
     return 'Please enter a train id to find the passengers aboard.'
   }
@@ -104,6 +96,6 @@ module.exports = {
   getAllPassenersByStationName,
   getTrainIdByPassengerId,
   getTrainIdByPassengerName,
-  getAllPassenersByTrainId,
+  getAllPassengersByTrainId,
   createNewPassenger
 }
