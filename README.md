@@ -32,12 +32,23 @@ Seed your database with test data:
 To drop your database use command:
 ``` npm run db:drop ```
 
-To reset your database by dropping, creating and seeding your database. Use:
+To reset your database by dropping, creating and seeding your database, use:
 ``` npm run db:reset ```
 
-To load the REPL, Use:
+To load the REPL use:
 ``` npm run repl ```
 
+To run quieres from the console, use:
+``` npm run console ```
 ## Usage and Examples
 
-_...and this_
+## Example
+
+``` const station = require('./models/station.js')
+    const passenger = require('/models/passenger.js')
+
+    //create a passenger Julia with parameters (name, destination, currentLocation, currentTrain)
+
+    createNewPassenger(Julia, 'Downtown', 'Waterfront', 2)
+
+    //new passenger Julia created! 

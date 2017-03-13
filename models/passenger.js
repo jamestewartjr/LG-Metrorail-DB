@@ -2,7 +2,7 @@ const { db } = require('../database/connection.js')
 
 const getPassengerIdByName = (name) => {
   if(typeof name !== 'string') {
-    return "Please enter a passenger's name."
+    return 'Please enter a passenger name.'
   }
   return db.one('SELECT id FROM passengers WHERE name = $1', [name])
     .then( response => {
@@ -15,7 +15,7 @@ const getPassengerIdByName = (name) => {
 
 const getPassengerNameById = (id) => {
   if(typeof id !== 'number') {
-    return "Please enter the passenger's id number."
+    return 'Please enter the passenger id number.'
   }
   return db.one('SELECT name FROM passengers WHERE id = $1', [id])
     .then( response => {
@@ -30,28 +30,28 @@ const getDesitnationById = (id) => {
   if(typeof id !== 'number'){
     return 'Please enter a passenger id number.'
    }
-   return db.one("SELECT ticket FROM passengers WHERE id = $1", [id])
+   return db.one('SELECT ticket FROM passengers WHERE id = $1', [id])
 }
 
 const getDesitnationByName  = (name) => {
   if(typeof name !== 'string'){
     return 'Please enter the name of a passenger.'
    }
-   return db.one("SELECT ticket FROM passengers WHERE name = $1", [name])
+   return db.one('SELECT ticket FROM passengers WHERE name = $1', [name])
 }
 
 const getCurrentStationByPassengerName = (name) => {
   if(typeof name !== 'string') {
     return 'Please enter the name of a passenger to find thier location.'
   }
-  return db.one("SELECT current_station FROM passengers WHERE name = $1", [name])
+  return db.one('SELECT current_station FROM passengers WHERE name = $1', [name])
 }
 
 const getCurrentStationByPassengerId = (id) => {
   if(typeof id !== 'number') {
     return'Please enter the id of a passenger to find thier location.'
   }
-  return db.one("SELECT current_station FROM passengers WHERE id = $1",[id])
+  return db.one('SELECT current_station FROM passengers WHERE id = $1',[id])
 }
 
 const getAllPassenersByStationName = (name) => {
@@ -75,7 +75,7 @@ const getTrainIdByPassengerName = (name) => {
   return db.one('SELECT current_train_id FROM passengers WHERE name = $1', [name])
 }
 
-const getAllPassenersByTrainId = (id) => {
+const getAllPassengersByTrainId = (id) => {
   if(typeof id !== 'number') {
     return 'Please enter a train id to find the passengers aboard.'
   }
@@ -96,6 +96,6 @@ module.exports = {
   getAllPassenersByStationName,
   getTrainIdByPassengerId,
   getTrainIdByPassengerName,
-  getAllPassenersByTrainId,
+  getAllPassengersByTrainId,
   createNewPassenger
 }

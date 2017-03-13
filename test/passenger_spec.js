@@ -10,11 +10,11 @@ const {
   getAllPassenersByStationName,
   getTrainIdByPassengerId,
   getTrainIdByPassengerName,
-  getAllPassenersByTrainId,
+  getAllPassengersByTrainId,
   createNewPassenger
 } = require('../models/passenger.js')
 
-describe("Passenger Model" , () => {
+describe('Passenger Model' , () => {
 
 
   context('getPassengerIdByName()', () => {
@@ -25,13 +25,13 @@ describe("Passenger Model" , () => {
       })
     })
     it('returns an error message if not given a string.', () => {
-      expect(getPassengerIdByName(2)).to.equal("Please enter a passenger's name.")
+      expect(getPassengerIdByName(2)).to.equal('Please enter a passenger name.')
     })
   })
 
   context('getPassengerNameById()', () => {
     it('returns and error message if given a string', () => {
-      expect(getPassengerNameById("Lisa")).to.equal("Please enter the passenger's id number.")
+      expect(getPassengerNameById('Lisa')).to.equal('Please enter the passenger id number.')
     })
     it('return the name of a passenger when given an id.', () => {
       return getPassengerNameById(2).then( results => {
@@ -74,7 +74,7 @@ describe("Passenger Model" , () => {
     })
     it('returns the current station of a passenger given thier name.', () => {
       return getCurrentStationByPassengerName('Lisa').then(response => {
-        expect(response.current_station).to.be.equal("Downtown")
+        expect(response.current_station).to.be.equal('Downtown')
       })
     })
   })
@@ -86,7 +86,7 @@ describe("Passenger Model" , () => {
     })
     it('returns the current station of a passenger given thier id.', () => {
       return getCurrentStationByPassengerId(2).then(response => {
-        expect(response.current_station).to.be.equal("Downtown")
+        expect(response.current_station).to.be.equal('Downtown')
       })
     })
   })
@@ -126,13 +126,13 @@ describe("Passenger Model" , () => {
     })
   })
 
-  context('getAllPassenersByTrainId()', () => {
+  context('getAllPassengersByTrainId()', () => {
     it('returns an error if given a string.', () => {
-      expect(getAllPassenersByTrainId('Lisa')).to.be
+      expect(getAllPassengersByTrainId('Lisa')).to.be
         .equal('Please enter a train id to find the passengers aboard.')
     })
     it('returns the passengers aboard when given a train id.', () => {
-      return getAllPassenersByTrainId(2).then( response => {
+      return getAllPassengersByTrainId(2).then( response => {
         expect(response.name).to.be.equal('Lisa')
       })
     })
