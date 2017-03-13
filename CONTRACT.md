@@ -92,13 +92,13 @@ As you build this project, you'll likely encounter questions such as:
 Expose the following commands (and more, if you need) using the `scripts` property of your `package.json`.
 
 - [x] `$ npm run test`: run all tests.
-- [ ] `$ npm run repl`: open a REPL session with all your library code loaded.
+- [x] `$ npm run repl`: open a REPL session with all your library code loaded.
 - [x] `$ npm run db:create`: create the database for the current `NODE_ENV`.
 - [x] `$ npm run db:migrate`: run all schema migrations for the database.
 - [x] `$ npm run db:seed`: insert seed (sample) data into the database.
 - [x] `$ npm run db:drop`: delete the database for the current `NODE_ENV`.
 - [x] `$ npm run db:reset`: drop, create, and migrate the database.
-- [ ] `$ npm run db:console`: open a console session for running queries against the database.
+- [x] `$ npm run db:console`: open a console session for running queries against the database.
 
 #### User Stories
 
