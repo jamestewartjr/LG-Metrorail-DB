@@ -51,33 +51,4 @@ To run quieres from the console, use:
 
     createNewPassenger(Julia, 'Downtown', 'Waterfront', 2)
 
-    //To increment station
-    
-
-
-
-
-
-
-const Station = require('./models/station')
-const Passenger = require('./models/passenger')
-
-// let's move a passenger "Sam" from the Downtown station to Waterfront...
-const sam = Passenger.find({name: 'Sam'})
-const downtown = Station.find({location: 'Downtown'})
-const waterfront = Station.find({location: 'Waterfront'})
-
-sam.setStation(downtown)
-sam.buyTicket({to: waterfront})
-
-const train = downtown.nextTrain()
-train.moveToNextStation()
-train.onboard()
-
-while (train.currentStation !== waterfront) {
-  train.moveToNextStation()
-}
-
-train.offboard()
-sam.currentStation
-// Sam is now at the Waterfront!
+    //new passenger Julia created! 
