@@ -42,4 +42,42 @@ To run quieres from the console, use:
 ``` npm run console ```
 ## Usage and Examples
 
-_...and this_
+## Example
+
+``` const station = require('./models/station.js')
+    const passenger = require('/models/passenger.js')
+
+    //create a passenger Julia with parameters (name, destination, currentLocation, currentTrain)
+
+    createNewPassenger(Julia, 'Downtown', 'Waterfront', 2)
+
+    //To increment station
+    
+
+
+
+
+
+
+const Station = require('./models/station')
+const Passenger = require('./models/passenger')
+
+// let's move a passenger "Sam" from the Downtown station to Waterfront...
+const sam = Passenger.find({name: 'Sam'})
+const downtown = Station.find({location: 'Downtown'})
+const waterfront = Station.find({location: 'Waterfront'})
+
+sam.setStation(downtown)
+sam.buyTicket({to: waterfront})
+
+const train = downtown.nextTrain()
+train.moveToNextStation()
+train.onboard()
+
+while (train.currentStation !== waterfront) {
+  train.moveToNextStation()
+}
+
+train.offboard()
+sam.currentStation
+// Sam is now at the Waterfront!
